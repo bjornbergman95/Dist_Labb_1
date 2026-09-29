@@ -1,17 +1,32 @@
+<%@ page import="org.example.bo.Facade" %>
+
+<%
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+
+    if (username != null && password != null) {
+
+        Facade facade = new Facade();
+
+        boolean success = Facade.logIn(username, password);
+
+        if (success) {
+            request.setAttribute("username", username);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        } else {
+            out.println("Wrong password or username");
+        }
+    }
+%>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>BV Web-Shop</title>
-    </head>
     <body>
         <h1 style="text-align: center;"> BV Web-Shop</h1>
-        <!-- <div style="position: absolute; right: 10%">
-            <button style="width: 100px; height: 100px;">
-                kundkorg
-            </button>
-        </div> -->
+
         <p style="text-align: center;">Welcome, Please Log In</p>
-        <form action="LoginServlet" method="post" style="text-align: center;">
+
+        <form action="index.jsp" method="post" style="text-align: center;">
             <label for="username">Username:</label>
             <br><br>
             <input type="text" id="username" name="username">
