@@ -16,15 +16,11 @@ class UserService {
                 if(u.getUsername() == null && u.getPassword() == null){
                     return false;
                 }
-                System.out.println("DETTA AR ANVÄNDARNAMNET" + u.getUsername());
-                System.out.println("DETTA AR LOSENORDET" + u.getPassword());
-                if(u.getUsername().equals(username) && u.getPassword().equals(password)){
-                    return true;
-                }
+                return u.getUsername().equals(username) && u.getPassword().equals(password);
+
             } else{
                 return false;
             }
-            return false;
 
         } catch(SQLException e){
             System.out.println(Arrays.toString(e.getStackTrace()));

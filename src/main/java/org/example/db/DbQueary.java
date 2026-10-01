@@ -35,14 +35,12 @@ public class DbQueary {
 
         try(PreparedStatement statement = connection.prepareStatement(sql)){
 
-
-            System.out.println("Here333");
             statement.setString(1, username);
-            System.out.println("Here222");
+
             ResultSet result = statement.executeQuery();
-            System.out.println("Here111");
+
             if (result.next()) {
-                System.out.println("Here");
+
                 User u = new User(
                         result.getString("username"),
                         result.getString("password")
