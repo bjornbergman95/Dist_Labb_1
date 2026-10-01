@@ -4,19 +4,15 @@
     String username = request.getParameter("username");
     String password = request.getParameter("password");
 
-    if (username != null && password != null) {
+    boolean success = Facade.logIn(username, password);
 
-        Facade facade = new Facade();
-
-        boolean success = Facade.logIn(username, password);
-
-        if (success) {
-            request.setAttribute("username", username);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
-        } else {
-            out.println("Wrong password or username");
-        }
+    if (success) {
+        request.setAttribute("username", username);
+        request.getRequestDispatcher("home.jsp").forward(request, response);
+    } else {
+        out.println("Wrong password or username");
     }
+
 %>
 
 <!DOCTYPE html>

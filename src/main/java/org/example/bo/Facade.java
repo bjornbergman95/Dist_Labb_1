@@ -1,14 +1,24 @@
 package org.example.bo;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 public class Facade {
 
-    private static UserService userService;
-
-    public Facade(){
-        userService = new UserService();
+    public static boolean logIn(String username, String password) throws SQLException {
+        return UserService.login(username, password);
     }
 
-    public static boolean logIn(String username, String password){
-        return userService.login(username, password);
+    public static ArrayList<Item> getBasket(){
+        return Item.getBasket();
     }
+
+    public static ArrayList<Item> getAllItems(){
+        return Item.getAllItems();
+    }
+
+    public static void addToBasket(){
+
+    }
+
 }
