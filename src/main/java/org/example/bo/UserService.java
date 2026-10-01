@@ -6,10 +6,9 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 class UserService {
-    private static final DbQueary db = new DbQueary();
 
     static boolean login(String username, String password){
-
+        DbQueary db = new DbQueary();
         try{
             if(username != null && password != null){
                 User u = db.login(username);

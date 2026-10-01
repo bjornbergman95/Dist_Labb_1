@@ -1,8 +1,11 @@
 package org.example.db;
 
+import org.example.bo.Item;
 import org.example.bo.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DbQueary {
     private Connection connection;
@@ -21,11 +24,11 @@ public class DbQueary {
             System.out.println("Connection ok.");
 
         } catch (ClassNotFoundException e) {
-            System.out.println("MYSQL DRIVER NOT FOUND");
+            System.out.println("MYSQL driver not found.");
             e.printStackTrace();
 
         } catch (SQLException e) {
-            System.out.println("DATABASE CONNECTION FAILED");
+            System.out.println("Connection failed.");
             e.printStackTrace();
         }
     }
@@ -54,5 +57,31 @@ public class DbQueary {
             System.out.println("Error while logging in.");
         }
         return new User(null,null);
+    }
+
+    public List<ItemDB> getAllItems(){
+        String sql = "SELECT * FROM `product`";
+        try(PreparedStatement statement = connection.prepareStatement(sql)){
+
+            ResultSet result = statement.executeQuery();
+            ArrayList<ItemDB> items = new ArrayList<>();
+            while(true){
+                if(result.next()){
+                    items.add(new ItemDB(
+                            result.getString("name"),
+                            result.getString("description"),
+                            result.getInt("price"),
+                            result.getInt("stock")
+                    ));
+                } else{
+                    break;
+                }
+            }
+            return items;
+
+        } catch(SQLException e){
+            System.out.println("Error while loading items");
+        }
+        return null;
     }
 }

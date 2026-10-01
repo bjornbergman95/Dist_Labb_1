@@ -1,29 +1,40 @@
 package org.example.bo;
 
+import org.example.db.ItemDB;
+import org.example.ui.Snapshot;
+
 import java.util.ArrayList;
 
-class Item {
-    private String name;
-    private int artNr;
-    private int price;
+public class Item {
+    private final String name;
+    private final String description;
+    private final int price;
+    private final int stock;
 
-    Item(String name, int artNr){
+    public Item(String name, String description, int price, int stock){
         this.name = name;
-        this.artNr = artNr;
+        this.description = description;
+        this.price = price;
+        this.stock = stock;
     }
 
-    static ArrayList<Item> getBasket(){
-        ArrayList<Item> basket = new ArrayList<>();
-
-        return basket;
+    public String getName(){
+        return this.name;
     }
 
-    static ArrayList<Item> getAllItems(){
-        return null;
+    public String getDescription(){
+        return this.description;
     }
 
     public int getPrice(){
         return this.price;
     }
 
+    public int getStock(){
+        return this.stock;
+    }
+
+    public static void getAllItems(){
+        Snapshot.updateItems((ArrayList<ItemDB>) ItemDB.getItems());
+    }
 }

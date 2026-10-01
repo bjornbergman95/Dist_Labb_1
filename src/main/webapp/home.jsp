@@ -1,3 +1,11 @@
+<%@ page import="org.example.bo.Facade" %>
+<%@ page import="org.example.bo.Item" %>
+<%@ page import="java.util.ArrayList" %>
+
+<%
+    ArrayList<Item> items = Facade.getAllItems();
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,5 +19,15 @@
                 Basket
             </button>
         </div>
+        <%
+            for (Item item : items) {
+                %>
+                    <div>
+                        <p>Namn: <%= item.getName() %></p>
+                        <p>Pris: <%= item.getPrice() %> kr</p>
+                    </div>
+                <%
+            }
+        %>
     </body>
 </html>

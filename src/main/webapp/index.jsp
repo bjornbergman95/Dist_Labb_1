@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1 style="text-align: center;"> BV Web-Shop</h1>
+        <h1 style="text-align: center;"> BV Web-Shop </h1>
 
         <p style="text-align: center;">Welcome, Please Log In</p>
 
