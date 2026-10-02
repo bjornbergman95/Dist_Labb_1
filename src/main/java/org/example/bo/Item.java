@@ -40,10 +40,6 @@ public class Item {
         return this.id;
     }
 
-    public static void getAllItems(){
-        Snapshot.updateItems((ArrayList<ItemDB>) ItemDB.getItems());
-    }
-
     public static Item getItem(int itemId){
         ArrayList<Item> items = Snapshot.getAllItems();
         for(Item i : items){

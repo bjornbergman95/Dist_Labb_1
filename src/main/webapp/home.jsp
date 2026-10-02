@@ -27,10 +27,6 @@
         BV Web-Shop
     </h1>
 
-    <p style="text-align: center;">
-        Welcome <%= request.getAttribute("username") %>!
-    </p>
-
     <div style="position: absolute; right: 10%;">
         <form action="basket.jsp" method="get">
             <button type="submit" style="width: 100px; height: 100px;">

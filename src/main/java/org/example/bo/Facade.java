@@ -16,12 +16,12 @@ public class Facade {
     }
 
     public static ArrayList<Item> getAllItems(){
-        Item.getAllItems();
+        ItemHandler.getAllItems();
         return Snapshot.getAllItems();
     }
 
     public static void addToBasket(int itemId){
-        Snapshot.updateBasket(Item.getItem(itemId));
+        Basket.addItem(Item.getItem(itemId));
     }
 
 }

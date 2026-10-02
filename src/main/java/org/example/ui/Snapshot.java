@@ -9,19 +9,19 @@ public class Snapshot {
     private static ArrayList<Item> allItems = new ArrayList<>();
     private static ArrayList<Item> basket = new ArrayList<>();
 
-    public static void updateItems(ArrayList<ItemDB> items){
-        allItems = new ArrayList<>(items);
+    public static void updateItems(ArrayList<Item> items){
+        Snapshot.allItems = items;
     }
 
     public static ArrayList<Item> getAllItems(){
-        return new ArrayList<>(allItems);
+        return allItems;
     }
 
-    public static void updateBasket(Item item){
-        basket.add(item);
+    public static void updateBasket(ArrayList<Item> basket){
+        Snapshot.basket = basket;
     }
 
     public static ArrayList<Item> getBasket(){
-        return new ArrayList<>(basket);
+        return basket;
     }
 }
