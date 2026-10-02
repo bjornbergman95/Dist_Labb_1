@@ -2,6 +2,7 @@ package org.example.db;
 
 import org.example.bo.Item;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,11 @@ public class ItemDB extends Item {
 
     public static List<ItemDB> getItems(){
         DbQueary db = new DbQueary();
-        return db.getAllItems();
+        try{
+            return db.getAllItems();
+        } catch(SQLException e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
-
 }

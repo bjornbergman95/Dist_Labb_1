@@ -3,7 +3,6 @@ package org.example.bo;
 import org.example.db.DbQueary;
 
 import java.sql.SQLException;
-import java.util.Arrays;
 
 class UserService {
 
@@ -18,7 +17,7 @@ class UserService {
             }
 
         } catch(SQLException e){
-            System.out.println(Arrays.toString(e.getStackTrace()));
+            e.printStackTrace();
         }
         return null;
     }

@@ -1,8 +1,5 @@
 package org.example.bo;
 
-import org.example.ui.Snapshot;
-import java.util.ArrayList;
-
 public class Item {
     private final String name;
     private final String description;

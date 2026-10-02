@@ -7,7 +7,7 @@ public class Snapshot {
     private static ArrayList<Item> allItems = new ArrayList<>();
 
     public static void updateItems(ArrayList<Item> items){
-        Snapshot.allItems = items;
+        Snapshot.allItems = new ArrayList<>(items);
     }
 
     public static ArrayList<Item> getAllItems(){

@@ -22,12 +22,4 @@ public class User {
     public Basket getBasket() {
         return this.basket;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }
