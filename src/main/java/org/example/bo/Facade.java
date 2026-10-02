@@ -11,8 +11,8 @@ public class Facade {
         return UserService.login(username, password);
     }
 
-    public static ArrayList<Item> viewBasket(){
-        return null;
+    public static ArrayList<Item> getBasket(){
+        return Snapshot.getBasket();
     }
 
     public static ArrayList<Item> getAllItems(){
@@ -20,8 +20,8 @@ public class Facade {
         return Snapshot.getAllItems();
     }
 
-    public static void addToBasket(){
-
+    public static void addToBasket(int itemId){
+        Snapshot.updateBasket(Item.getItem(itemId));
     }
 
 }

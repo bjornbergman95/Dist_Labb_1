@@ -10,7 +10,6 @@ import java.util.List;
 public class DbQueary {
     private Connection connection;
 
-
     public DbQueary(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -71,7 +70,8 @@ public class DbQueary {
                             result.getString("name"),
                             result.getString("description"),
                             result.getInt("price"),
-                            result.getInt("stock")
+                            result.getInt("stock"),
+                            result.getInt("id")
                     ));
                 } else{
                     break;

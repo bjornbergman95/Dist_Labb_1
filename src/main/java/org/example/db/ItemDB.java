@@ -7,8 +7,8 @@ import java.util.List;
 
 public class ItemDB extends Item {
 
-    public ItemDB(String name, String description, int price, int stock) {
-        super(name, description, price, stock);
+    public ItemDB(String name, String description, int price, int stock, int id) {
+        super(name, description, price, stock, id);
     }
 
     public static List<ItemDB> getItems(){

@@ -10,12 +10,14 @@ public class Item {
     private final String description;
     private final int price;
     private final int stock;
+    private final int id;
 
-    public Item(String name, String description, int price, int stock){
+    public Item(String name, String description, int price, int stock, int id){
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
+        this.id = id;
     }
 
     public String getName(){
@@ -34,7 +36,21 @@ public class Item {
         return this.stock;
     }
 
+    public int getId(){
+        return this.id;
+    }
+
     public static void getAllItems(){
         Snapshot.updateItems((ArrayList<ItemDB>) ItemDB.getItems());
+    }
+
+    public static Item getItem(int itemId){
+        ArrayList<Item> items = Snapshot.getAllItems();
+        for(Item i : items){
+            if(i.getId() == itemId){
+                return i;
+            }
+        }
+        return null;
     }
 }
