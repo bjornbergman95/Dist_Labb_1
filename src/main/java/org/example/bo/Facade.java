@@ -7,12 +7,12 @@ import java.util.ArrayList;
 
 public class Facade {
 
-    public static boolean logIn(String username, String password) throws SQLException {
+    public static User logIn(String username, String password) throws SQLException {
         return UserService.login(username, password);
     }
 
-    public static ArrayList<Item> getBasket(){
-        return Snapshot.getBasket();
+    public static ArrayList<Item> getBasket(User user){
+        return user.getBasket().getItems();
     }
 
     public static ArrayList<Item> getAllItems(){
@@ -20,8 +20,12 @@ public class Facade {
         return Snapshot.getAllItems();
     }
 
-    public static void addToBasket(int itemId){
-        Basket.addItem(ItemHandler.getItem(itemId));
+    public static void addToBasket(int itemId, User user){
+        Item item = ItemHandler.getItem(itemId);
+
+        if(item != null) {
+            user.getBasket().addItem(item);
+        }
     }
 
 }

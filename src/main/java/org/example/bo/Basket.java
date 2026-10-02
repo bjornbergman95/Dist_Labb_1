@@ -6,12 +6,16 @@ import java.util.ArrayList;
 
 public class Basket {
 
-    private static ArrayList<Item> basket = new ArrayList<>();
+    private final ArrayList<Item> basket = new ArrayList<>();
 
-    public static void addItem(Item item){
+    public void addItem(Item item){
         if(item != null) {
             basket.add(item);
-            Snapshot.updateBasket(new ArrayList<>(basket));
         }
     }
+
+    public ArrayList<Item> getItems(){
+        return new ArrayList<>(basket);
+    }
+
 }

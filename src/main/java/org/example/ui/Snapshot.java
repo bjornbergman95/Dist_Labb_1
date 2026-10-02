@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class Snapshot {
     private static ArrayList<Item> allItems = new ArrayList<>();
-    private static ArrayList<Item> basket = new ArrayList<>();
 
     public static void updateItems(ArrayList<Item> items){
         Snapshot.allItems = items;
@@ -15,11 +14,4 @@ public class Snapshot {
         return new ArrayList<>(allItems);
     }
 
-    public static void updateBasket(ArrayList<Item> basket){
-        Snapshot.basket = basket;
-    }
-
-    public static ArrayList<Item> getBasket(){
-        return new ArrayList<>(basket);
-    }
 }

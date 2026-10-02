@@ -1,16 +1,16 @@
 <%@ page import="org.example.bo.Facade" %>
+<%@ page import="org.example.bo.User" %>
 
 <%
     String username = request.getParameter("username");
     String password = request.getParameter("password");
 
-    boolean success = Facade.logIn(username, password);
+    User user = Facade.logIn(username, password);
 
-    if (success) {
-        request.setAttribute("username", username);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
-    } else {
-        out.println("Wrong password or username");
+    if (user != null) {
+        session.setAttribute("user", user);
+        response.sendRedirect("home.jsp");
+        return;
     }
 
 %>

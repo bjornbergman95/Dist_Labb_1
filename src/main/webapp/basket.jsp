@@ -1,9 +1,17 @@
 <%@ page import="org.example.bo.Facade" %>
 <%@ page import="org.example.bo.Item" %>
+<%@ page import="org.example.bo.User" %>
 <%@ page import="java.util.ArrayList" %>
 
 <%
-    ArrayList<Item> basket = Facade.getBasket();
+    User user = (User) session.getAttribute("user");
+
+    if(user == null) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+
+    ArrayList<Item> basket = Facade.getBasket(user);
 %>
 
 <!DOCTYPE html>
