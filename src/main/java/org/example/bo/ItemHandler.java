@@ -13,4 +13,14 @@ public class ItemHandler {
 
         Snapshot.updateItems(new ArrayList<>(items));
     }
+
+    public static Item getItem(int itemId){
+        ArrayList<Item> items = Snapshot.getAllItems();
+        for(Item i : items){
+            if(i.getId() == itemId){
+                return i;
+            }
+        }
+        return null;
+    }
 }

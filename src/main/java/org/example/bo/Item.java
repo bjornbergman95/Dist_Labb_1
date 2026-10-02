@@ -1,8 +1,6 @@
 package org.example.bo;
 
-import org.example.db.ItemDB;
 import org.example.ui.Snapshot;
-
 import java.util.ArrayList;
 
 public class Item {
@@ -40,13 +38,4 @@ public class Item {
         return this.id;
     }
 
-    public static Item getItem(int itemId){
-        ArrayList<Item> items = Snapshot.getAllItems();
-        for(Item i : items){
-            if(i.getId() == itemId){
-                return i;
-            }
-        }
-        return null;
-    }
 }

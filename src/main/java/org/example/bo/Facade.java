@@ -21,7 +21,7 @@ public class Facade {
     }
 
     public static void addToBasket(int itemId){
-        Basket.addItem(Item.getItem(itemId));
+        Basket.addItem(ItemHandler.getItem(itemId));
     }
 
 }

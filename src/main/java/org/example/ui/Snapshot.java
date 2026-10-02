@@ -1,8 +1,6 @@
 package org.example.ui;
 
 import org.example.bo.Item;
-import org.example.db.ItemDB;
-
 import java.util.ArrayList;
 
 public class Snapshot {
@@ -14,7 +12,7 @@ public class Snapshot {
     }
 
     public static ArrayList<Item> getAllItems(){
-        return allItems;
+        return new ArrayList<>(allItems);
     }
 
     public static void updateBasket(ArrayList<Item> basket){
@@ -22,6 +20,6 @@ public class Snapshot {
     }
 
     public static ArrayList<Item> getBasket(){
-        return basket;
+        return new ArrayList<>(basket);
     }
 }

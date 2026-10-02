@@ -9,8 +9,9 @@ public class Basket {
     private static ArrayList<Item> basket = new ArrayList<>();
 
     public static void addItem(Item item){
-        basket.add(item);
-
-        Snapshot.updateBasket(new ArrayList<>(basket));
+        if(item != null) {
+            basket.add(item);
+            Snapshot.updateBasket(new ArrayList<>(basket));
+        }
     }
 }
