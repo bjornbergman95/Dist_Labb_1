@@ -27,4 +27,8 @@ public class Facade {
         }
     }
 
+    public static int getTotalPrice(User user){
+        return user.getBasket().getTotalPrice();
+    }
+
 }

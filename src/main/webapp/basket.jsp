@@ -14,6 +14,10 @@
     ArrayList<Item> basket = Facade.getBasket(user);
 %>
 
+<%
+    int total = Facade.getTotalPrice(user);
+%>
+
 <!DOCTYPE html>
 <html>
 
@@ -70,17 +74,22 @@
                 }
             }
         %>
-
     </div>
 
-    <div class="back-button">
+    <h2 style="text-align: center;">Total: <%= total %> kr</h2>
 
+    <div class="back-button">
         <form action="home.jsp" method="get">
             <button type="submit">
                 Back to shop
             </button>
         </form>
+    </div>
 
+    <div class="back-button">
+        <button type="button">
+            Cash Out
+        </button>
     </div>
 
 </body>

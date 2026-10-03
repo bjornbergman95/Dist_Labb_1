@@ -16,4 +16,12 @@ public class Basket {
         return new ArrayList<>(basket);
     }
 
+    public int getTotalPrice(){
+        int total = 0;
+        for (Item i : basket){
+            total += i.getPrice();
+        }
+        return total;
+    }
+
 }
