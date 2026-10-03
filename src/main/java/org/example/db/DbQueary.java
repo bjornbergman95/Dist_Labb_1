@@ -41,7 +41,8 @@ public class DbQueary {
 
                     return new User(
                             result.getString("username"),
-                            result.getString("password")
+                            result.getString("password"),
+                            result.getString("role")
                     );
                 }
             }

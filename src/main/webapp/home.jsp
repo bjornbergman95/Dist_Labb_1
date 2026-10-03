@@ -73,6 +73,8 @@
                         Add to basket
                     </button>
 
+                    <h2><%= item.getStock() %> in stock </h2>
+
                 </form>
 
             </div>
