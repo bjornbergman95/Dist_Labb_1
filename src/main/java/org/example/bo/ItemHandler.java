@@ -10,10 +10,8 @@ public class ItemHandler {
 
     public static void getAllItems(){
         List<ItemDB> items = ItemDB.getItems();
+        Snapshot.updateItems(new ArrayList<>(items));
 
-        if(items != null){
-            Snapshot.updateItems(new ArrayList<>(items));
-        }
     }
 
     public static Item getItem(int itemId){

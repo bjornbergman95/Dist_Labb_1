@@ -17,25 +17,21 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+    <title>BV Web-shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
     <body>
-        <h1 style="text-align: center;"> BV Web-Shop </h1>
+        <nav class="navbar">
+            <div class="logo">BV Web-Shop</div>
 
-        <p style="text-align: center;">Welcome, Please Log In</p>
-
-        <form action="index.jsp" method="post" style="text-align: center;">
-            <label for="username">Username:</label>
-            <br><br>
-            <input type="text" id="username" name="username">
-
-            <br><br>
-
-            <label for="password">Password:</label>
-            <br><br>
-            <input type="password" id="password" name="password">
-
-            <br><br>
-
-            <button type="submit">Log In</button>
-        </form>
+            <div class="nav-links">
+                <a href="basket.jsp">Shopping Cart</a>
+                <a href="login.jsp">Login</a>
+            </div>
+        </nav>
+    <h1 style="text-align: center;">
+        Please login in order to see available products
+    </h1>
     </body>
 </html>

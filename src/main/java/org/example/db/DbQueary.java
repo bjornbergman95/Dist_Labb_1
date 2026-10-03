@@ -11,9 +11,7 @@ public class DbQueary {
     public DbQueary(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-            System.out.println("Connection ok.");
-
+            System.out.println("MySQL driver loaded.");
         } catch (ClassNotFoundException e) {
             System.out.println("MYSQL driver not found.");
             e.printStackTrace();

@@ -23,59 +23,65 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>BV Web-Shop</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
 
-    <h1 style="text-align: center;">
-        BV Web-Shop
-    </h1>
+<body>
+        <nav class="navbar">
+
+            <div class="logo">
+                BV Web-Shop
+            </div>
+
+            <div class="nav-links">
+                <a href="basket.jsp">Shopping Cart</a>
+                <a href="logout.jsp">Logout</a>
+            </div>
+
+        </nav>
     <p style="text-align: center;">
         Welcome <%= user.getUsername() %>!
     </p>
-    <div style="position: absolute; right: 10%;">
-        <form action="basket.jsp" method="get">
-            <button type="submit" style="width: 100px; height: 100px;">
-                Basket
-            </button>
-        </form>
+
+    <div class="product-grid">
+
+        <%
+            for (Item item : items) {
+        %>
+
+            <div class="product-card">
+
+                <h2><%= item.getName() %></h2>
+
+                <p class="price">
+                    <%= item.getPrice() %> kr
+                </p>
+
+                <form method="post" action="home.jsp">
+
+                    <input
+                        type="hidden"
+                        name="itemId"
+                        value="<%= item.getId() %>"
+                    >
+
+                    <button type="submit">
+                        Add to basket
+                    </button>
+
+                </form>
+
+            </div>
+
+        <%
+            }
+        %>
+
     </div>
-
-
-    <%
-        for (Item item : items) {
-    %>
-
-        <div style="text-align: center; margin-bottom: 10px;">
-
-            <span>
-                <%= item.getName() %>: <%= item.getPrice() %> kr
-            </span>
-
-            <form method="post" action="home.jsp" style="display: inline;">
-
-                <input
-                    type="hidden"
-                    name="itemId"
-                    value="<%= item.getId() %>"
-                >
-
-                <button
-                    type="submit"
-                    style="width: 100px; height: 20px;"
-                >
-                    Add to basket
-                </button>
-
-            </form>
-
-        </div>
-
-    <%
-        }
-    %>
 
 </body>
 </html>

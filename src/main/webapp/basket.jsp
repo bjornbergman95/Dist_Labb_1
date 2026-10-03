@@ -6,7 +6,7 @@
 <%
     User user = (User) session.getAttribute("user");
 
-    if(user == null) {
+    if (user == null) {
         response.sendRedirect("index.jsp");
         return;
     }
@@ -19,22 +19,37 @@
 
 <head>
     <title>Basket - BV Web-Shop</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1 style="text-align: center;">
-        Basket
+    <nav class="navbar">
+
+        <div class="logo">
+            BV Web-Shop
+        </div>
+
+        <div class="nav-links">
+            <a href="basket.jsp">Shopping Cart</a>
+            <a href="logout.jsp">Logout</a>
+        </div>
+
+    </nav>
+
+    <h1 class="basket-title">
+        Shopping Cart
     </h1>
 
-
-    <div style="text-align: center;">
+    <div class="basket-container">
 
         <%
             if (basket.isEmpty()) {
         %>
 
-            <p>Your basket is empty.</p>
+            <p class="empty-basket">
+                Your basket is empty.
+            </p>
 
         <%
             } else {
@@ -42,9 +57,14 @@
                 for (Item item : basket) {
         %>
 
-                    <div style="margin-bottom: 10px;">
-                        <%= item.getName() %>: <%= item.getPrice() %> kr
-                    </div>
+            <div class="basket-item">
+
+                <div>
+                    <h2><%= item.getName() %></h2>
+                    <p><%= item.getPrice() %> kr</p>
+                </div>
+
+            </div>
 
         <%
                 }
@@ -53,16 +73,12 @@
 
     </div>
 
-
-    <div style="text-align: center; margin-top: 30px;">
+    <div class="back-button">
 
         <form action="home.jsp" method="get">
-
-            <button type="submit"
-                    style="width: 100px; height: 40px;">
-                Back
+            <button type="submit">
+                Back to shop
             </button>
-
         </form>
 
     </div>

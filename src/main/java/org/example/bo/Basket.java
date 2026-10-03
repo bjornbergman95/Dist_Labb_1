@@ -1,7 +1,5 @@
 package org.example.bo;
 
-import org.example.ui.Snapshot;
-
 import java.util.ArrayList;
 
 public class Basket {
