@@ -72,18 +72,18 @@
         opacity: 0.8;
     }
 
-    .basket-title {
+    .cart-title {
         text-align: center;
         margin-top: 40px;
     }
 
-    .basket-container {
+    .cart-container {
         max-width: 800px;
         margin: 30px auto;
         padding: 0 20px;
     }
 
-    .basket-item {
+    .cart-item {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -95,17 +95,17 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .basket-item h2 {
+    .cart-item h2 {
         margin: 0 0 5px 0;
     }
 
-    .basket-item p {
+    .cart-item p {
         margin: 0;
         font-size: 18px;
         font-weight: bold;
     }
 
-    .empty-basket {
+    .empty-cart {
         text-align: center;
         font-size: 20px;
         margin-top: 50px;

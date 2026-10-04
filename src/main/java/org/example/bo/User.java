@@ -4,13 +4,13 @@ public class User {
     private final String username;
     private final String password;
     private final String role;
-    private final Basket basket;
+    private final Cart cart;
 
     public User(String username, String password, String role){
         this.username = username;
         this.password = password;
         this.role = role;
-        this.basket = new Basket();
+        this.cart = new Cart();
     }
 
     public String getUsername(){
@@ -21,8 +21,8 @@ public class User {
         return this.password.equals(password);
     }
 
-    public Basket getBasket() {
-        return this.basket;
+    public Cart getCart(){
+        return this.cart;
     }
 
     public String getRole(){

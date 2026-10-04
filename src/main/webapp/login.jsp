@@ -30,7 +30,7 @@
         <div class="logo">BV Web-Shop</div>
 
         <div class="nav-links">
-            <a href="basket.jsp">Shopping Cart</a>
+            <a href="cart.jsp">Shopping Cart</a>
         </div>
     </nav>
 

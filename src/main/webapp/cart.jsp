@@ -11,7 +11,7 @@
         return;
     }
 
-    ArrayList<Item> basket = Facade.getBasket(user);
+    ArrayList<Item> cart = Facade.getCart(user);
 %>
 
 <%
@@ -22,7 +22,7 @@
 <html>
 
 <head>
-    <title>Basket - BV Web-Shop</title>
+    <title>Cart - BV Web-Shop</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -35,33 +35,33 @@
         </div>
 
         <div class="nav-links">
-            <a href="basket.jsp">Shopping Cart</a>
+            <a href="cart.jsp">Shopping Cart</a>
             <a href="logout.jsp">Logout</a>
         </div>
 
     </nav>
 
-    <h1 class="basket-title">
+    <h1 class="cart-title">
         Shopping Cart
     </h1>
 
-    <div class="basket-container">
+    <div class="cart-container">
 
         <%
-            if (basket.isEmpty()) {
+            if (cart.isEmpty()) {
         %>
 
-            <p class="empty-basket">
-                Your basket is empty.
+            <p class="empty-cart">
+                Your shopping cart is empty.
             </p>
 
         <%
             } else {
 
-                for (Item item : basket) {
+                for (Item item : cart) {
         %>
 
-            <div class="basket-item">
+            <div class="cart-item">
 
                 <div>
                     <h2><%= item.getName() %></h2>

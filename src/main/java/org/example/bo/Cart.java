@@ -2,23 +2,23 @@ package org.example.bo;
 
 import java.util.ArrayList;
 
-public class Basket {
+public class Cart {
 
-    private final ArrayList<Item> basket = new ArrayList<>();
+    private final ArrayList<Item> cart = new ArrayList<>();
 
     public void addItem(Item item){
         if(item != null) {
-            basket.add(item);
+            cart.add(item);
         }
     }
 
     public ArrayList<Item> getItems(){
-        return new ArrayList<>(basket);
+        return new ArrayList<>(cart);
     }
 
     public int getTotalPrice(){
         int total = 0;
-        for (Item i : basket){
+        for (Item i : cart){
             total += i.getPrice();
         }
         return total;

@@ -15,7 +15,7 @@
 
     if (itemId != null) {
         int id = Integer.parseInt(itemId);
-        Facade.addToBasket(id, user);
+        Facade.addToCart(id, user);
     }
 
     ArrayList<Item> items = Facade.getAllItems();
@@ -38,14 +38,14 @@
             </div>
 
             <div class="nav-links">
-                <a href="basket.jsp">Shopping Cart</a>
+                <a href="cart.jsp">Shopping Cart</a>
                 <a href="logout.jsp">Logout</a>
             </div>
 
         </nav>
-    <p style="text-align: center;">
+    <h2 style="text-align: center;">
         Welcome <%= user.getUsername() %>!
-    </p>
+    </h2>
 
     <div class="product-grid">
 
@@ -70,10 +70,10 @@
                     >
 
                     <button type="submit">
-                        Add to basket
+                        Add to shopping cart
                     </button>
 
-                    <h2><%= item.getStock() %> in stock </h2>
+                    <p><%= item.getStock() %> in stock </p>
 
                 </form>
 

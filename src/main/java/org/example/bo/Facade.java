@@ -1,6 +1,6 @@
 package org.example.bo;
 
-import org.example.ui.Snapshot;
+import org.example.ui.ItemDTO;
 
 import java.util.ArrayList;
 
@@ -10,25 +10,25 @@ public class Facade {
         return UserService.login(username, password);
     }
 
-    public static ArrayList<Item> getBasket(User user){
-        return user.getBasket().getItems();
+    public static ArrayList<Item> getCart(User user){
+        return user.getCart().getItems();
     }
 
     public static ArrayList<Item> getAllItems(){
         ItemHandler.getAllItems();
-        return Snapshot.getAllItems();
+        return ItemDTO.getAllItems();
     }
 
-    public static void addToBasket(int itemId, User user){
+    public static void addToCart(int itemId, User user){
         Item item = ItemHandler.getItem(itemId);
 
         if(item != null) {
-            user.getBasket().addItem(item);
+            user.getCart().addItem(item);
         }
     }
 
     public static int getTotalPrice(User user){
-        return user.getBasket().getTotalPrice();
+        return user.getCart().getTotalPrice();
     }
 
 }
