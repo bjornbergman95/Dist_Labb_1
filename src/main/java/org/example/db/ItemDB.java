@@ -12,7 +12,7 @@ public class ItemDB extends Item {
         super(name, description, price, stock, id);
     }
 
-    public static List<ItemDB> getItems(){
+    public static ArrayList<ItemDB> getItems(){
         DbQueary db = new DbQueary();
         try{
             return db.getAllItems();

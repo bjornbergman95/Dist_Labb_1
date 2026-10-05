@@ -50,7 +50,7 @@ public class DbQueary {
         return null;
     }
 
-    public List<ItemDB> getAllItems() throws SQLException{
+    public ArrayList<ItemDB> getAllItems() throws SQLException{
         String sql = "SELECT * FROM `product`";
         ArrayList<ItemDB> items = new ArrayList<>();
 

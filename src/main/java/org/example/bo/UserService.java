@@ -22,6 +22,20 @@ class UserService {
         return null;
     }
 
+    public static User getUser(String username) {
+        DbQueary db = new DbQueary();
+
+        try {
+            if (username != null) {
+                return db.login(username);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 
 
 }

@@ -8,19 +8,20 @@ import java.util.List;
 
 public class ItemHandler {
 
-    public static void getAllItems(){
-        List<ItemDB> items = ItemDB.getItems();
-        ItemDTO.updateItems(new ArrayList<>(items));
-
+    public static ArrayList<Item> getAllItems(){
+        return new ArrayList<>(ItemDB.getItems());
     }
 
-    public static Item getItem(int itemId){
-        ArrayList<Item> items = ItemDTO.getAllItems();
-        for(Item i : items){
-            if(i.getId() == itemId){
+    public static Item getItem(int itemId) {
+
+        ArrayList<Item> items = ItemHandler.getAllItems();
+
+        for (Item i : items) {
+            if (i.getId() == itemId) {
                 return i;
             }
         }
+
         return null;
     }
 }

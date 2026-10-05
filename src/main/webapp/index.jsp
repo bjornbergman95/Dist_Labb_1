@@ -1,20 +1,3 @@
-<%@ page import="org.example.bo.Facade" %>
-<%@ page import="org.example.bo.User" %>
-
-<%
-    String username = request.getParameter("username");
-    String password = request.getParameter("password");
-
-    User user = Facade.logIn(username, password);
-
-    if (user != null) {
-        session.setAttribute("user", user);
-        response.sendRedirect("home.jsp");
-        return;
-    }
-
-%>
-
 <!DOCTYPE html>
 <html>
 <head>

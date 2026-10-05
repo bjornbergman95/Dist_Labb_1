@@ -1,5 +1,5 @@
 <%@ page import="org.example.bo.Facade" %>
-<%@ page import="org.example.bo.Item" %>
+<%@ page import="org.example.ui.ItemDTO" %>
 <%@ page import="org.example.bo.User" %>
 <%@ page import="java.util.ArrayList" %>
 
@@ -11,7 +11,7 @@
         return;
     }
 
-    ArrayList<Item> cart = Facade.getCart(user);
+    ArrayList<ItemDTO> cart = Facade.getCart(user);
 %>
 
 <%
@@ -58,7 +58,7 @@
         <%
             } else {
 
-                for (Item item : cart) {
+                for (ItemDTO item : cart) {
         %>
 
             <div class="cart-item">
