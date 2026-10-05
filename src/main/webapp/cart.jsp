@@ -15,7 +15,7 @@
 
 
     if (request.getMethod().equals("POST")) {
-        Facade.checkout(cart);
+        Facade.checkout(cart, user);
     }
 
 

@@ -1,5 +1,6 @@
 package org.example.db;
 
+import org.example.bo.Order;
 import org.example.bo.User;
 
 import java.sql.*;
@@ -69,4 +70,39 @@ public class DbQueary {
         }
         return items;
     }
+
+    public boolean checkout(Order order) throws SQLException {
+
+        String sql = "UPDATE product " +
+                "SET stock = stock - 1 " +
+                "WHERE id = ? AND stock > 0";
+
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            connection.setAutoCommit(false);
+
+            try {
+                for (Integer id : order.getItemIds()) {
+
+                    statement.setInt(1, id);
+
+                    int rows = statement.executeUpdate();
+
+                    if (rows == 0) {
+                        connection.rollback();
+                        return false;
+                    }
+                }
+
+                connection.commit();
+                return true;
+
+            } catch (SQLException e) {
+                connection.rollback();
+                throw e;
+            }
+        }
+    }
+
 }

@@ -35,8 +35,11 @@ public class Facade {
         }
     }
 
-    public static void checkout(CartDTO cart){
-        cart.clear();
+    public static void checkout(CartDTO cart, UserDTO user){
+        Order order = new Order(cart, user);
+        if(Order.checkout(order)){
+            cart.clear();
+        }
     }
 
 }
