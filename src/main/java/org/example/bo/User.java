@@ -1,5 +1,7 @@
 package org.example.bo;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class User {
     private final String username;
     private final String password;
@@ -16,7 +18,7 @@ public class User {
     }
 
     public boolean checkPassword(String password){
-        return this.password.equals(password);
+        return BCrypt.checkpw(password, this.password);
     }
 
     public String getRole(){

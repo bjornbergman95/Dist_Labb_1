@@ -4,7 +4,7 @@ import org.example.db.DbQueary;
 
 import java.sql.SQLException;
 
-class UserService {
+public class UserService {
 
     public static User login(String username, String password){
         DbQueary db = new DbQueary();
@@ -21,21 +21,4 @@ class UserService {
         }
         return null;
     }
-
-    public static User getUser(String username) {
-        DbQueary db = new DbQueary();
-
-        try {
-            if (username != null) {
-                return db.login(username);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-
-
 }
