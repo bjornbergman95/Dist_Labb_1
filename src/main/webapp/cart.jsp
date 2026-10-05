@@ -1,21 +1,20 @@
 <%@ page import="org.example.bo.Facade" %>
+<%@ page import="org.example.bo.Cart" %>
 <%@ page import="org.example.ui.ItemDTO" %>
-<%@ page import="org.example.bo.User" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="org.example.ui.UserDTO" %>
+<%@ page import="org.example.ui.CartDTO" %>
 
 <%
-    User user = (User) session.getAttribute("user");
+    UserDTO user = (UserDTO) session.getAttribute("user");
 
     if (user == null) {
         response.sendRedirect("index.jsp");
         return;
     }
 
-    ArrayList<ItemDTO> cart = Facade.getCart(user);
-%>
+    Cart cart = (Cart) session.getAttribute("cart");
 
-<%
-    int total = Facade.getTotalPrice(user);
+    CartDTO cartDTO = Facade.getCart(cart);
 %>
 
 <!DOCTYPE html>
@@ -48,7 +47,7 @@
     <div class="cart-container">
 
         <%
-            if (cart.isEmpty()) {
+            if (cartDTO.getItems().isEmpty()) {
         %>
 
             <p class="empty-cart">
@@ -57,26 +56,26 @@
 
         <%
             } else {
-
-                for (ItemDTO item : cart) {
+                for (ItemDTO item : cartDTO.getItems()) {
         %>
 
             <div class="cart-item">
-
-                <div>
-                    <h2><%= item.getName() %></h2>
-                    <p><%= item.getPrice() %> kr</p>
-                </div>
-
+                <p>
+                    <%= item.getName() %>
+                    <%= item.getPrice() %> kr
+                </p>
             </div>
 
         <%
                 }
             }
         %>
+
     </div>
 
-    <h2 style="text-align: center;">Total: <%= total %> kr</h2>
+    <h2 style="text-align: center;">
+        Total: <%= cartDTO.getTotalPrice() %> kr
+    </h2>
 
     <div class="back-button">
         <form action="home.jsp" method="get">

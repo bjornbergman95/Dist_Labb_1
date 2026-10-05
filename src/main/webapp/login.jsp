@@ -1,5 +1,6 @@
 <%@ page import="org.example.bo.Facade" %>
-<%@ page import="org.example.bo.User" %>
+<%@ page import="org.example.ui.UserDTO" %>
+<%@ page import="org.example.bo.Cart" %>
 
 <%
     String username = request.getParameter("username");
@@ -7,10 +8,12 @@
 
     if (username != null && password != null) {
 
-        User user = Facade.logIn(username, password);
+        UserDTO user = Facade.logIn(username, password);
 
         if (user != null) {
             session.setAttribute("user", user);
+            session.setAttribute("cart", new Cart());
+
             response.sendRedirect("home.jsp");
             return;
         }

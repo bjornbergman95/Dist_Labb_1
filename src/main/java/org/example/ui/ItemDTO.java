@@ -9,8 +9,6 @@ public class ItemDTO {
     private final int stock;
     private final int id;
 
-    //skapa de detamedlemmar som ska visas och ta bort arrayen
-
     public ItemDTO(Item item){
         this.name = item.getName();
         this.description = item.getDescription();

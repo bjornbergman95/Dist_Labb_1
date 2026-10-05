@@ -1,10 +1,7 @@
 package org.example.bo;
 
 import org.example.db.ItemDB;
-import org.example.ui.ItemDTO;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class ItemHandler {
 

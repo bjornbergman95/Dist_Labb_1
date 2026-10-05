@@ -4,7 +4,6 @@ import org.example.bo.User;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DbQueary {
 
