@@ -2,10 +2,11 @@
 <%@ page import="org.example.ui.ItemDTO" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="org.example.ui.UserDTO" %>
-<%@ page import="org.example.bo.Cart" %>
+<%@ page import="org.example.ui.CartDTO" %>
 
 <%
     UserDTO user = (UserDTO) session.getAttribute("user");
+    CartDTO cart = (CartDTO) session.getAttribute("cart");
 
     if(user == null) {
         response.sendRedirect("index.jsp");
@@ -16,7 +17,6 @@
 
     if (itemId != null) {
         int id = Integer.parseInt(itemId);
-        Cart cart = (Cart) session.getAttribute("cart");
 
         Facade.addToCart(id, cart);
     }

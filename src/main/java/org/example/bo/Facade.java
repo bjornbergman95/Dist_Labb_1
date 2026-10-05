@@ -18,17 +18,6 @@ public class Facade {
         return null;
     }
 
-    public static CartDTO getCart(Cart cart) {
-
-        ArrayList<ItemDTO> items = new ArrayList<>();
-
-        for (Item item : cart.getItems()) {
-            items.add(new ItemDTO(item));
-        }
-
-        return new CartDTO(items, cart.getTotalPrice());
-    }
-
     public static ArrayList<ItemDTO> getAllItems() {
         ArrayList<Item> items = ItemHandler.getAllItems();
         ArrayList<ItemDTO> list = new ArrayList<>();
@@ -38,11 +27,10 @@ public class Facade {
         return list;
     }
 
-    public static void addToCart(int itemId, Cart cart) {
+    public static void addToCart(int itemId, CartDTO cart) {
         Item item = ItemHandler.getItem(itemId);
-
         if (item != null) {
-            cart.addItem(item);
+            cart.addItem(new ItemDTO(item));
         }
     }
 

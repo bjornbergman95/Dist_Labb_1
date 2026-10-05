@@ -1,5 +1,4 @@
 <%@ page import="org.example.bo.Facade" %>
-<%@ page import="org.example.bo.Cart" %>
 <%@ page import="org.example.ui.ItemDTO" %>
 <%@ page import="org.example.ui.UserDTO" %>
 <%@ page import="org.example.ui.CartDTO" %>
@@ -12,9 +11,8 @@
         return;
     }
 
-    Cart cart = (Cart) session.getAttribute("cart");
+    CartDTO cart = (CartDTO) session.getAttribute("cart");
 
-    CartDTO cartDTO = Facade.getCart(cart);
 %>
 
 <!DOCTYPE html>
@@ -47,7 +45,7 @@
     <div class="cart-container">
 
         <%
-            if (cartDTO.getItems().isEmpty()) {
+            if (cart.getItems().isEmpty()) {
         %>
 
             <p class="empty-cart">
@@ -56,7 +54,7 @@
 
         <%
             } else {
-                for (ItemDTO item : cartDTO.getItems()) {
+                for (ItemDTO item : cart.getItems()) {
         %>
 
             <div class="cart-item">
@@ -74,7 +72,7 @@
     </div>
 
     <h2 style="text-align: center;">
-        Total: <%= cartDTO.getTotalPrice() %> kr
+        Total: <%= cart.getTotalPrice() %> kr
     </h2>
 
     <div class="back-button">

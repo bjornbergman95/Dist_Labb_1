@@ -1,6 +1,6 @@
 <%@ page import="org.example.bo.Facade" %>
 <%@ page import="org.example.ui.UserDTO" %>
-<%@ page import="org.example.bo.Cart" %>
+<%@ page import="org.example.ui.CartDTO" %>
 
 <%
     String username = request.getParameter("username");
@@ -12,7 +12,7 @@
 
         if (user != null) {
             session.setAttribute("user", user);
-            session.setAttribute("cart", new Cart());
+            session.setAttribute("cart", new CartDTO());
 
             response.sendRedirect("home.jsp");
             return;
