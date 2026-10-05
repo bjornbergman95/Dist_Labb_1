@@ -2,6 +2,7 @@ package org.example.ui;
 
 import java.util.ArrayList;
 
+//Shopping cart that handles ItemDTO:s
 public class CartDTO {
     private final ArrayList<ItemDTO> items;
     private int totalPrice;
@@ -29,5 +30,10 @@ public class CartDTO {
 
     public int getTotalPrice() {
         return totalPrice;
+    }
+
+    public void clear(){
+        this.items.clear();
+        this.totalPrice = 0;
     }
 }

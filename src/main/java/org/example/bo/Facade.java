@@ -6,6 +6,7 @@ import org.example.ui.UserDTO;
 
 import java.util.ArrayList;
 
+//UI entrypoint to BO
 public class Facade {
 
     public static UserDTO logIn(String username, String password) {
@@ -32,6 +33,10 @@ public class Facade {
         if (item != null) {
             cart.addItem(new ItemDTO(item));
         }
+    }
+
+    public static void checkout(CartDTO cart){
+        cart.clear();
     }
 
 }

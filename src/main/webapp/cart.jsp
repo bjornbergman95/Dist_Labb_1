@@ -13,6 +13,12 @@
 
     CartDTO cart = (CartDTO) session.getAttribute("cart");
 
+
+    if (request.getMethod().equals("POST")) {
+        Facade.checkout(cart);
+    }
+
+
 %>
 
 <!DOCTYPE html>
@@ -84,9 +90,11 @@
     </div>
 
     <div class="back-button">
-        <button type="button">
-            Cash Out
-        </button>
+        <form action="cart.jsp" method="post">
+            <button type="submit">
+                Checkout
+            </button>
+        </form>
     </div>
 
 </body>

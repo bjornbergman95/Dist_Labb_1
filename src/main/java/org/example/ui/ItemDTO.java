@@ -2,6 +2,7 @@ package org.example.ui;
 
 import org.example.bo.Item;
 
+//Item representation that UI can see
 public class ItemDTO {
     private final String name;
     private final String description;

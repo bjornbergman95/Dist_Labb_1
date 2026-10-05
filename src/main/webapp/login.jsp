@@ -10,9 +10,14 @@
 
         UserDTO user = Facade.logIn(username, password);
 
-        if (user != null) {
+        if (user != null && user.getRole().equals("user")) {
             session.setAttribute("user", user);
             session.setAttribute("cart", new CartDTO());
+
+            response.sendRedirect("home.jsp");
+            return;
+        } else {
+            session.setAttribute("user", user);
 
             response.sendRedirect("home.jsp");
             return;

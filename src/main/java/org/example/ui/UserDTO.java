@@ -1,7 +1,6 @@
 package org.example.ui;
 
-import org.example.bo.User;
-
+// User representation that UI can see
 public class UserDTO {
     private final String username;
     private final String role;
